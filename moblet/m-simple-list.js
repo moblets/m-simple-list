@@ -16,7 +16,6 @@ module.exports = {
     $state,
     $stateParams,
     $mDataLoader
-    // $sanitize
   ) {
     var dataLoadOptions;
     var list = {
