@@ -12,12 +12,12 @@
   "title": {
     "label": "Title",
     "hint": "Content title",
-    "placeholder": "My content"
+    "placeholder": "My title"
   },
   "description": {
     "label": "Content",
     "hint": "Fill the content with HTML using the text editor",
-    "placeholder": "My content\nHere is the content"
+    "placeholder": "My content"
   },
   "listStyle": {
     "label": "List style",
