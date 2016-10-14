@@ -37,8 +37,8 @@ module.exports = {
           $scope.items = (more) ? $scope.items.concat(data.items) : data.items;
 
           // Set "noContent" if the items lenght = 0
-          $scope.noContent = $scope.items.length === 0 ||
-                             $scope.items === undefined;
+          $scope.noContent = $scope.items === undefined ||
+                             $scope.items.length === 0;
 
           // Check if the page is loading the list or a detail
           $scope.isDetail = list.isDetail();
