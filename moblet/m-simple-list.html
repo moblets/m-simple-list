@@ -1,4 +1,4 @@
-<m-moblet is-loading="isLoading" inner-scroll="true" unavaliable="error">
+<m-moblet is-loading="isLoading" inner-scroll="true" unavaliable="error" no-content="noContent">
   <m-content init="init" ng-if="!isDetail" reload="load" more="more">
     <div class="list">
       <div class="item {{ listStyle }}" class="list" ng-repeat="(key, item) in items" ng-click="goTo(item)">
