@@ -69,7 +69,7 @@ module.exports = {
        * Show the detail getting the index from $stateParams.detail. Set "item"
        * to the selected detail
        */
-      showDetail() {
+      showDetail: function() {
         var itemIndex = _.findIndex($scope.items, function(item) {
           return item.id.toString() === $stateParams.detail;
         });
