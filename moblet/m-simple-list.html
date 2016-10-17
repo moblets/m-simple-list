@@ -1,6 +1,6 @@
-<m-moblet is-loading="isLoading" inner-scroll="true" unavaliable="error" no-content="noContent">
-  <m-content init="init" ng-if="!isDetail" reload="load" more="more">
-    <div class="list">
+<m-moblet is-loading="isLoading" inner-scroll="true" unavaliable="error">
+  <m-content init="init" reload="load" more="more">
+    <div class="list" ng-if="!isDetail">
       <div class="item {{ listStyle }}" class="list" ng-repeat="(key, item) in items" ng-click="goTo(item)">
         <div>
           <h1 ng-bind="item.title"></h1>
@@ -10,9 +10,7 @@
         </div>
       </div>
     </div>
-  </m-content>
-  <m-content init="init" ng-if="isDetail">
-    <div class="detail {{ itemStyle }}">
+    <div class="detail {{ itemStyle }}" ng-if="isDetail">
       <h1 class="title" ng-bind="detail.title"></h1>
       <div class="description" m-bind-html="detail.description"></div>
     </div>

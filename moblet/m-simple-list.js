@@ -170,6 +170,7 @@ module.exports = {
     };
 
     $scope.load = list.load;
+    $scope.init = list.init;
     $scope.goTo = listItem.goTo;
     list.init();
   }
