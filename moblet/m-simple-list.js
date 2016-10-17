@@ -73,7 +73,7 @@ module.exports = {
        * to the selected detail
        */
       showDetail: function() {
-        if (isDefined($stateParams.detail) || $stateParams.detail !== "") {
+        if (isDefined($stateParams.detail) && $stateParams.detail !== "") {
           var itemIndex = _.findIndex($scope.items, function(item) {
             return item.id.toString() === $stateParams.detail;
           });
