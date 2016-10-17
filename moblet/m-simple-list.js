@@ -154,8 +154,7 @@ module.exports = {
           cache: ($stateParams.detail !== "")
         };
 
-        $scope.load = list.load;
-        $scope.load(true);
+        list.load.load(true);
       }
     };
 
