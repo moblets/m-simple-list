@@ -73,20 +73,22 @@ module.exports = {
        * to the selected detail
        */
       showDetail: function() {
-        var itemIndex = _.findIndex($scope.items, function(item) {
-          return item.id.toString() === $stateParams.detail;
-        });
-        if (itemIndex === -1) {
-          dataLoadOptions = {
-            offset: $scope.items === undefined ? 0 : $scope.items.length,
-            items: 25,
-            cache: false
-          };
-          list.load(false, function() {
-            list.showDetail();
+        if (isDefined($stateParams.detail) || $stateParams.detail !== "") {
+          var itemIndex = _.findIndex($scope.items, function(item) {
+            return item.id.toString() === $stateParams.detail;
           });
-        } else {
-          $scope.detail = $scope.items[itemIndex];
+          if (itemIndex === -1) {
+            dataLoadOptions = {
+              offset: $scope.items === undefined ? 0 : $scope.items.length,
+              items: 25,
+              cache: false
+            };
+            list.load(false, function() {
+              list.showDetail();
+            });
+          } else {
+            $scope.detail = $scope.items[itemIndex];
+          }
         }
       },
       /**
@@ -154,8 +156,7 @@ module.exports = {
           cache: ($stateParams.detail !== "")
         };
 
-        $scope.load = list.load;
-        $scope.load(true);
+        list.load(true);
       }
     };
 
@@ -171,6 +172,7 @@ module.exports = {
     };
 
     $scope.load = list.load;
+    $scope.init = list.init;
     $scope.goTo = listItem.goTo;
     list.init();
   }
