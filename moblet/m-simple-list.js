@@ -154,7 +154,7 @@ module.exports = {
           cache: ($stateParams.detail !== "")
         };
 
-        list.load.load(true);
+        list.load(true);
       }
     };
 
