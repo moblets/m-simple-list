@@ -6,7 +6,7 @@
           <h1 ng-bind="item.title"></h1>
         </div>
         <div>
-          <p ng-bind="stripHtml(item.description)"></p>
+          <p ng-bind-html="stripHtml(item.description)"></p>
         </div>
       </div>
     </div>
