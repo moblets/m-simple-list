@@ -53,7 +53,10 @@ module.exports = {
         $rootScope.$broadcast('scroll.infiniteScrollComplete');
 
         // If the view is showing the detail, call showDetail
-        if ($scope.isDetail) {
+        if ($scope.items.length === 1) {
+          $scope.isDetail = true;
+          list.showDetail(0);
+        } else if ($scope.isDetail) {
           list.showDetail();
         }
 
@@ -72,7 +75,7 @@ module.exports = {
        * Show the detail getting the index from $stateParams.detail. Set "item"
        * to the selected detail
        */
-      showDetail: function() {
+      showDetail: function(detailIndex) {
         if (isDefined($stateParams.detail) && $stateParams.detail !== "") {
           var itemIndex = _.findIndex($scope.items, function(item) {
             return item.id.toString() === $stateParams.detail;
@@ -89,6 +92,8 @@ module.exports = {
           } else {
             $scope.detail = $scope.items[itemIndex];
           }
+        } else if (isDefined(detailIndex)) {
+          $scope.detail = $scope.items[detailIndex];
         }
       },
       /**

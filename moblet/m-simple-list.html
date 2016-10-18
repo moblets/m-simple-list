@@ -3,10 +3,10 @@
     <div class="list" ng-if="!isDetail">
       <div class="item {{ listStyle }}" class="list" ng-repeat="(key, item) in items" ng-click="goTo(item)">
         <div>
-          <h1 ng-bind="item.title"></h1>
+          <h1 ng-bind="item.title" class="m-theme-text-color"></h1>
         </div>
         <div>
-          <p ng-bind-html="stripHtml(item.description)"></p>
+          <p ng-bind-html="stripHtml(item.description) | mCut:40"></p>
         </div>
       </div>
     </div>
