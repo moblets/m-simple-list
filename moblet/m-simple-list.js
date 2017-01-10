@@ -93,6 +93,7 @@ module.exports = {
               list.showDetail();
             });
           } else {
+            $stateParams.pageTitle = $scope.items[itemIndex].title;
             $scope.detail = $scope.items[itemIndex];
           }
         } else if (isDefined(detailIndex)) {
@@ -157,6 +158,7 @@ module.exports = {
        * TODO go to detail if url is called
        */
       init: function() {
+        $stateParams.pageTitle = null;
         dataLoadOptions = {
           offset: 0,
           items: 25,
