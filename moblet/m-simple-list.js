@@ -163,8 +163,10 @@ module.exports = {
           listKey: 'items',
           cache: ($stateParams.detail !== "")
         };
-
         list.load(true);
+        $scope.reload = function() {
+          list.load();
+        };
       }
     };
 
