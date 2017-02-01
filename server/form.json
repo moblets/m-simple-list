@@ -17,7 +17,7 @@
           "type": "text",
           "required": false,
           "min-length": 1,
-          "max-length": 100
+          "max-length": 40
         },
         {
           "name": "description",
