@@ -13,6 +13,13 @@
           "max-length": 30
         },
         {
+          "name": "resume",
+          "type": "text",
+          "required": false,
+          "min-length": 1,
+          "max-length": 100
+        },
+        {
           "name": "description",
           "type": "rich-text",
           "required": true,

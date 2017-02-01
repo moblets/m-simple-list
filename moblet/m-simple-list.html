@@ -1,12 +1,13 @@
-<!--<m-moblet init="init"  is-loading="isLoading" inner-scroll="true" no-content="noContent" unavaliable="error">-->
-  <!--<m-content reload="load" more="more" >-->
+<m-moblet init="init"  is-loading="isLoading" inner-scroll="true" no-content="noContent" unavaliable="error">
+  <m-content reload="load" more="more" >
     <div class="list" ng-if="!isDetail">
       <div class="item {{ listStyle }}" class="list" ng-repeat="(key, item) in items" ng-click="goTo(item)">
         <div>
           <h1 ng-bind="item.title"></h1>
         </div>
         <div>
-          <p ng-bind-html="stripHtml(item.description) | mCut:60"></p>
+          <p ng-bind="item.resume" ng-if="item.resume"></p>
+          <p ng-bind-html="stripHtml(item.description) | mCut:60" ng-if="!item.resume"></p>
         </div>
       </div>
     </div>
@@ -14,6 +15,6 @@
       <h1 class="title" ng-bind="detail.title"></h1>
       <div class="description" m-bind-html="detail.description"></div>
     </div>
-  <!--</m-content>-->
-<!--</m-moblet>-->
+  </m-content>
+</m-moblet>
 
