@@ -15,7 +15,7 @@
         {
           "name": "resume",
           "type": "text",
-          "max-length": 40
+          "max-length": 30
         },
         {
           "name": "description",
