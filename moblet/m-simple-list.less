@@ -9,10 +9,36 @@ m-simple-list{
       text-align: center;
       padding-top: 70%;
   }
-  .layout-1 {
-  }
-  .layout-2 {
-    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+  .style-list.item{
+		height: 96px;
+    min-height: 96px;
+		border-color: none;
+		h1 {
+			font-size: 14px;
+			font-weight: 700;
+			text-overflow: inherit;
+			line-height: 1.3em;
+			white-space: normal;
+			margin: 0;
+		}
+		.img-container {
+			float: left;
+			width: 124px;
+			left: 0px;
+			top: 0px;
+			img {
+				top:12px;
+				left:12px;
+				width:114px;
+				height: 70px;
+				max-width: 114px;
+				max-height: 70px;
+				overflow: hidden;
+			}
+		}
+	}
+  .style-card.item{
+		box-shadow: 0 1px 3px rgba(0,0,0,.3);
 		margin: 10px;
 		padding: 10px 12px 12px 12px;
 		h1 {
@@ -20,10 +46,15 @@ m-simple-list{
 			border-bottom: 1px solid #eee;
 			font-size: 16px;
 			padding-bottom: 5px;
-			margin-bottom: 5px;
 			line-height: 1.4;
+    	max-height: 2.8em;
 		}
-  }
+		img {
+			margin-top: 5px;
+			width:100%;
+		}
+	}
+
   .list {
     position: relative;
     padding-top: 1px;
@@ -31,19 +62,10 @@ m-simple-list{
     padding-left: 0;
     margin-bottom: 20px;
     .item {
-      padding: 10px 12px 0 12px;
-      height: 96px;
-      min-height: 96px;
-      h1 {
-        font-size: 14px;
-        font-weight: 700;
-        text-overflow: inherit;
-        line-height: 1.3em;
-        white-space: normal;
-      }
       p {
         font-size: 14px;
         line-height: 1.3em;
+    		max-height: 2.6em;
         color: #333;
         white-space: normal;
       }
@@ -55,12 +77,27 @@ m-simple-list{
         height: auto;
         max-height: 2.6em;
       }
+
     }
   }
+	.layout-2 {
+		box-shadow: 0 1px 3px rgba(0,0,0,.3);
+		margin: 10px;
+		h1 {
+			font-weight: bold;
+			border-bottom: 1px solid #eee;
+			font-size: 16px;
+			padding-bottom: 5px;
+			margin-bottom: 5px;
+			line-height: 1.4;
+		}
+	}
   .detail {
     position: relative;
-    padding: 16px;
-    background-color: white;
+		.detail-container{
+			padding: 16px;
+			background-color: #fff;
+		}
     h1 {
       font-size: 17px;
     }
@@ -91,4 +128,8 @@ m-simple-list{
 			}
 		}
   }
+	.full-width-image {
+		width: 100vw;
+		height: 50vw;
+	}
 }
