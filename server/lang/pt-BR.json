@@ -16,8 +16,8 @@
   },
   "resume": {
     "label": "Descrição",
-    "hint": "Descrição do item",
-    "placeholder": "Minha Descrição"
+    "hint": "descrição do item",
+    "placeholder": "minha Descrição"
   },
   "description": {
     "label": "Conteúdo",
