@@ -17,6 +17,7 @@ module.exports = {
     $stateParams,
     $mDataLoader
   ) {
+    var dadosIniciais = [];
     var dataLoadOptions;
     var list = {
       /**
@@ -27,10 +28,12 @@ module.exports = {
        */
       setView: function(data, more) {
         if (isDefined(data)) {
+          console.log(data, "data do m-simple-list");
           $scope.error = false;
           $scope.emptyData = false;
           $scope.listStyle = data.listStyle;
           $scope.itemStyle = data.itemStyle;
+
 
           $scope.isCard = data.listStyle === "layout-2";
           $scope.isList = isDefined(data.listStyle) ? data.listStyle === "layout-1" : true;
@@ -57,6 +60,45 @@ module.exports = {
         $rootScope.$broadcast('scroll.refreshComplete');
         $rootScope.$broadcast('scroll.infiniteScrollComplete');
 
+        if (!$scope.isDetail) {
+          $rootScope.$broadcast('show-search');
+        }
+
+        $scope.$on("$destroy", function(){
+          if (!$scope.isDetail) {
+            console.log("Hide Lupe");
+            $rootScope.$broadcast('hide-search');
+          }    
+        });
+
+        $scope.$on("update-data", function(event, args) { 
+
+          console.log(document.getElementById('input-search').style.color);
+
+          if ($scope.items.length < dadosIniciais.length) {
+            $scope.items = [];
+
+            for (var i = 0; dadosIniciais[i] !== undefined; i++) {
+              $scope.items.push(dadosIniciais[i]);
+            }
+          }
+          
+          var quant_destroy = $scope.items.length - args.response.results.length;
+
+          //popula os itens encontrados
+          for (var i = 0; i <= args.response.results.length -1; i++) {
+              $scope.items[i].description = args.response.results[i].item.description;
+              $scope.items[i].id = args.response.results[i].item.id;
+              $scope.items[i].resume = args.response.results[i].item.resume;
+              $scope.items[i].title = args.response.results[i].item.title;
+          }
+
+          //destroi os itens desnecessarios
+          while(quant_destroy > 0) {
+            $scope.items.splice(-1,1)  
+            quant_destroy--;
+          }
+        });
         // If the view is showing the detail, call showDetail
         if ($scope.items.length === 1) {
           $scope.isDetail = true;
@@ -126,6 +168,12 @@ module.exports = {
         $mDataLoader.load($scope.moblet, dataLoadOptions)
           .then(function(data) {
             list.setView(data);
+
+            dadosIniciais = JSON.stringify(data.items);
+            dadosIniciais = JSON.parse(dadosIniciais);
+
+            console.log(dadosIniciais, "dadosIniciais");
+
             if (typeof callback === 'function') {
               callback();
             }
