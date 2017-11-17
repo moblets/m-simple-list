@@ -33,7 +33,7 @@ module.exports = {
           $scope.emptyData = false;
           $scope.listStyle = data.listStyle;
           $scope.itemStyle = data.itemStyle;
-
+          var origData = JSON.stringify(data.items);
 
           $scope.isCard = data.listStyle === "layout-2";
           $scope.isList = isDefined(data.listStyle) ? data.listStyle === "layout-1" : true;
@@ -61,15 +61,8 @@ module.exports = {
         $rootScope.$broadcast('scroll.infiniteScrollComplete');
 
         if (!$scope.isDetail) {
-          $rootScope.$broadcast('show-search');
+          $rootScope.$broadcast('show-search', {data});
         }
-
-        $scope.$on("$destroy", function(){
-          if (!$scope.isDetail) {
-            console.log("Hide Lupe");
-            $rootScope.$broadcast('hide-search');
-          }    
-        });
 
         $scope.$on("update-data", function(event, args) { 
 
@@ -87,15 +80,15 @@ module.exports = {
 
           //popula os itens encontrados
           for (var i = 0; i <= args.response.results.length -1; i++) {
-              $scope.items[i].description = args.response.results[i].item.description;
-              $scope.items[i].id = args.response.results[i].item.id;
-              $scope.items[i].resume = args.response.results[i].item.resume;
-              $scope.items[i].title = args.response.results[i].item.title;
+            $scope.items[i].description = args.response.results[i].item.description;
+            $scope.items[i].id = args.response.results[i].item.id;
+            $scope.items[i].resume = args.response.results[i].item.resume;
+            $scope.items[i].title = args.response.results[i].item.title;
           }
 
           //destroi os itens desnecessarios
           while(quant_destroy > 0) {
-            $scope.items.splice(-1,1)  
+            $scope.items.splice(-1,1);  
             quant_destroy--;
           }
         });
@@ -109,6 +102,12 @@ module.exports = {
 
         // Remove the loading animation
         $scope.moblet.isLoading = false;
+
+        $scope.$on("check-update-data", function(event, args) { 
+           if ($scope.items.length < dadosIniciais.length) {
+             $scope.items = JSON.parse(origData);
+           }
+         });
       },
       /**
        * Check if the view is showing a detail or the list. The function checks
@@ -168,6 +167,8 @@ module.exports = {
         $mDataLoader.load($scope.moblet, dataLoadOptions)
           .then(function(data) {
             list.setView(data);
+
+            $rootScope.$broadcast('hide-search-refresh');
 
             dadosIniciais = JSON.stringify(data.items);
             dadosIniciais = JSON.parse(dadosIniciais);
