@@ -33,10 +33,18 @@ module.exports = {
           $scope.emptyData = false;
           $scope.listStyle = data.listStyle;
           $scope.itemStyle = data.itemStyle;
+
           var origData = JSON.stringify(data.items);
+
+          if (data.search === true) {
+            $rootScope.$broadcast('hideShowSearch', {data});
+          }
 
           $scope.isCard = data.listStyle === "layout-2";
           $scope.isList = isDefined(data.listStyle) ? data.listStyle === "layout-1" : true;
+
+          $scope.search = isDefined(data.search) ? data.search === true : false;
+
           // If it was called from the "more" function, concatenate the items
           $scope.items = (more) ? $scope.items.concat(data.items) : data.items;
 
@@ -64,8 +72,7 @@ module.exports = {
           $rootScope.$broadcast('show-search', {data});
         }
 
-        $scope.$on("update-data", function(event, args) { 
-
+        $scope.$on("update-data", function(event, args) {
           console.log(document.getElementById('input-search').style.color);
 
           if ($scope.items.length < dadosIniciais.length) {
@@ -80,15 +87,16 @@ module.exports = {
 
           //popula os itens encontrados
           for (var i = 0; i <= args.response.results.length -1; i++) {
+
             $scope.items[i].description = args.response.results[i].item.description;
             $scope.items[i].id = args.response.results[i].item.id;
             $scope.items[i].resume = args.response.results[i].item.resume;
             $scope.items[i].title = args.response.results[i].item.title;
           }
 
-          //destroi os itens desnecessarios
-          while(quant_destroy > 0) {
-            $scope.items.splice(-1,1);  
+          // destroi os itens desnecessarios
+          while (quant_destroy > 0) {
+            $scope.items.splice(-1, 1);
             quant_destroy--;
           }
         });
@@ -117,10 +125,8 @@ module.exports = {
       isDetail: function() {
         return $stateParams.detail !== "";
       },
-      /**
-       * Show the detail getting the index from $stateParams.detail. Set "item"
-       * to the selected detail
-       */
+      // Show the detail getting the index from $stateParams.detail. Set "item"
+      // to the selected detail
       showDetail: function(detailIndex) {
         if (isDefined($stateParams.detail) && $stateParams.detail !== "") {
           var itemIndex = _.findIndex($scope.items, function(item) {
