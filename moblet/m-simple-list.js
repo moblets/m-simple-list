@@ -134,8 +134,8 @@ module.exports = {
           });
           if (itemIndex === -1) {
             dataLoadOptions = {
-              offset: $scope.items === undefined ? 0 : $scope.items.length,
-              items: 25,
+              //offset: $scope.items === undefined ? 0 : $scope.items.length,
+              items: 1000,
               cache: false
             };
             list.load(false, function() {
@@ -217,8 +217,8 @@ module.exports = {
       init: function() {
         $stateParams.pageTitle = null;
         dataLoadOptions = {
-          offset: 0,
-          items: 25,
+          //offset: 0,
+          items: 1000,
           listKey: 'items',
           cache: false
         };
