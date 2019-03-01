@@ -9,19 +9,19 @@
           "name": "title",
           "type": "text",
           "required": true,
-          "min-length": 1,
-          "max-length": 30
+          "minlength": 1,
+          "maxlength": 30
         },
         {
           "name": "resume",
           "type": "text",
-          "max-length": 30
+          "maxlength": 30
         },
         {
           "name": "description",
           "type": "rich-text",
           "required": true,
-          "min-length": 3
+          "minlength": 3
         }
       ]
     },
