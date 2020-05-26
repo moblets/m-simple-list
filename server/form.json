@@ -10,12 +10,12 @@
           "type": "text",
           "required": true,
           "minlength": 1,
-          "maxlength": 30
+          "maxlength": 50
         },
         {
           "name": "resume",
           "type": "text",
-          "maxlength": 30
+          "maxlength": 150
         },
         {
           "name": "description",
