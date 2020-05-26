@@ -2,8 +2,7 @@
   "moblet": {
     "label": "Lista de texto pro",
     "hint": "Crie uma lista de conteúdos ricos",
-    "description": "Preencha os campos abaixo para criar a lista de conteúdos",
-    "tutorial_link": "https://suporte.fabricadeaplicativos.com.br/hc/pt-br/articles/360024123852/"
+    "description": "Preencha os campos abaixo para criar a lista de conteúdos"
   },
   "items": {
     "label": "Lista de conteúdos",
