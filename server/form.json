@@ -7,21 +7,39 @@
       "fields": [
         {
           "name": "title",
-          "type": "text",
+          "type": "input",
+          "inputType": "text",
           "required": true,
           "minlength": 1,
-          "maxlength": 50
+          "maxlength": 50,
+          "validations": [
+            { "name": "required" },
+            { "name": "minLength", "value": 1 },
+            { "name": "maxLength", "value": 50 }
+          ]
         },
         {
           "name": "resume",
-          "type": "text",
-          "maxlength": 150
+          "type": "input",
+          "inputType": "text",
+          "minlength": 1,
+          "maxlength": 150,
+          "validations": [
+            { "name": "minLength", "value": 1 },
+            { "name": "maxLength", "value": 150 }
+          ]
         },
         {
           "name": "description",
-          "type": "rich-text",
+          "type": "richtext",
           "required": true,
-          "minlength": 3
+          "minlength": 3,
+          "maxlength": 12000,
+          "validations": [
+            { "name": "required" },
+            { "name": "minLength", "value": 3 },
+            { "name": "maxLength", "value": 12000 }
+          ]
         }
       ]
     },
@@ -33,19 +51,29 @@
       "name": "listStyle",
       "type": "select",
       "required": true,
+      "options": [
+        { "value": "layout-1", "name": "list_type_1" },
+        { "value": "layout-2", "name": "list_type_2" }
+      ],
       "values": {
         "layout-1": "list_type_1",
         "layout-2": "list_type_2"
-      }
+      },
+      "validations": [{ "name": "required" }]
     },
     {
       "name": "itemStyle",
       "type": "select",
       "required": true,
+      "options": [
+        { "value": "layout-1", "name": "item_type_1" },
+        { "value": "layout-2", "name": "item_type_2" }
+      ],
       "values": {
-        "layout-1": "item_type_1",
-        "layout-2": "item_type_2"
-      }
+        "layout-1": "list_type_1",
+        "layout-2": "list_type_2"
+      },
+      "validations": [{ "name": "required" }]
     }
   ]
 }
