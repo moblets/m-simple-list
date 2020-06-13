@@ -2,7 +2,8 @@
   "moblet": {
     "label": "Content list",
     "hint": "Create a list of rich text content",
-    "description": "Fill the fields below to create a list of content"
+    "description": "Fill the fields below to create a list of content",
+    "version": 2
   },
   "locations": {
     "label": "Content list",

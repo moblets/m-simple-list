@@ -2,7 +2,8 @@
   "moblet": {
     "label": "Lista de texto",
     "hint": "Crie uma lista de conteúdos ricos",
-    "description": "Preencha os campos abaixo para criar a lista de conteúdos"
+    "description": "Preencha os campos abaixo para criar a lista de conteúdos",
+    "version": 2
   },
   "items": {
     "label": "Lista de conteúdos",

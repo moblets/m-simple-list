@@ -2,7 +2,8 @@
   "moblet": {
     "label": "Lista de texto",
     "hint": "Crear una lista de contenido de texto enriquecido",
-    "description": "Rellene los campos a continuación para crear una lista de contenido"
+    "description": "Rellene los campos a continuación para crear una lista de contenido",
+    "version": 2
   },
   "locations": {
     "label": "Lista de contenido",
