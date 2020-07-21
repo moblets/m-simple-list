@@ -1,0 +1,53 @@
+{
+  "fields": [
+    {
+      "name": "items",
+      "type": "list",
+      "has-details": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "minlength": 1,
+          "maxlength": 50
+        },
+        {
+          "name": "resume",
+          "type": "text",
+          "minlength": 1,
+          "maxlength": 150
+        },
+        {
+          "name": "description",
+          "type": "rich-text",
+          "required": true,
+          "minlength": 3,
+          "maxlength": 250000
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "type": "toggle"
+    },
+    {
+      "name": "listStyle",
+      "type": "select",
+      "required": true,
+      "values": {
+        "layout-1": "list_type_1",
+        "layout-2": "list_type_2"
+      }
+    },
+    {
+      "name": "itemStyle",
+      "type": "select",
+      "required": true,
+      "values": {
+        "layout-1": "list_type_1",
+        "layout-2": "list_type_2"
+      }
+    }
+  ]
+}
