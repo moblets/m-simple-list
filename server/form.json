@@ -70,8 +70,8 @@
         { "value": "layout-2", "name": "item_type_2" }
       ],
       "values": {
-        "layout-1": "list_type_1",
-        "layout-2": "list_type_2"
+        "layout-1": "item_type_1",
+        "layout-2": "item_type_2"
       },
       "validations": [{ "name": "required" }]
     }
